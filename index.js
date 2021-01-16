@@ -9,8 +9,8 @@
 
 class RangeValidator{
   constructor(from, to) {
-    this.from = from;
-    this.to = to;
+    this._from = from;
+    this._to = to;
   }
  set from(v) {
    if(typeof v !== 'number' && v > this._to) {
@@ -32,12 +32,12 @@ get to () {
   return this._to;
 }
 
-get range () {
-return [this.from, this.to];
+getRange () {
+return [this._from, this._to];
 }
 
 validate(number) {
-  if(number < this._from && number > this._to) {
+  if(number < this._from || number > this._to) {
     throw new TypeError('Введенное Вами число не входит в диапазон')
   }
   return number;
