@@ -9,14 +9,14 @@
 
 class RangeValidator{
   constructor(from, to) {
-    this._from = from;
-    this._to = to;
+    this.from = from;
+    this.to = to;
   }
  set from(v) {
    if(typeof v !== 'number' && v > this._to) {
     throw new TypeError('Введите число');
    }
-   this._fromValue = from;
+   this._from = v;
  }
   
  get from () {
@@ -27,7 +27,7 @@ class RangeValidator{
   if(typeof v !== 'number' && v < this._from) {
     throw new TypeError('Введите число');
   }
-  this._toValue = to;
+  this._to = v;
 }
 
 get to () {
